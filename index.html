@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elami Publications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .part1, .part2, .part3 {
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .part1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .part1 img {
+            max-width: 150px;
+            border-radius: 8px;
+        }
+        .part1-content {
+            flex-grow: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .part1-content h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+            font-size: 1.2em;
+        }
+        .part1-content p {
+            margin: 5px 0;
+            line-height: 1.6;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .part2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .book {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .book:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .book img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .book h3 {
+            margin: 10px 0;
+            position: relative;
+            font-size: 1.1em;
+            color: #007bff;
+        }
+        .book h3:hover::after {
+            content: 'Add to Cart';
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #28a745;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .part3 {
+            text-align: center;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .cart-icon:hover {
+            color: #007bff;
+        }
+        .cart-count {
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+        .cart-details {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            z-index: 1000;
+        }
+        .cart-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart-details button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .cart-details button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="part1">
+        <img src="images/coverpage.png" alt="Elami Publications">
+        <div class="part1-content">
+            <p>Elami is an <span class="highlight">independent publication platform</span> committed to encouraging a variety of creative pursuits in the Telugu world.</p>
+        </div>
+        <div class="part1-content">
+            <h2>Customer Comment</h2>
+            <p>"This is a great book!"</p> <!-- Placeholder for a random comment -->
+        </div>
+    </div>
+    <div class="part2">
+
+        <div class="book" data-title="ఎమోషనల్ ప్రెగ్నెన్సీ" data-price="150">
+            <img src="images/emotionalpregnenacy.png" alt="Book Cover">
+            <h3>ఎమోషనల్ ప్రెగ్నెన్సీ</h3>
+        </div>
+        <div class="book" data-title="మనసు నుంచి మనసుకి" data-price="150">
+            <img src="images/manasunundimanasuki.png" alt="Book Cover">
+            <h3>మనసు నుంచి మనసుకి</h3>
+        </div>
+        <div class="book" data-title="నెమరేసే స్టోరీస్" data-price="150">
+            <img src="images/nemaresestories.png" alt="Book Cover">
+            <h3>నెమరేసే స్టోరీస్</h3>
+        </div>
+        <div class="book" data-title="పట్టణంలో బతుకుదామని" data-price="150">
+            <img src="images/pattanamlobatukudamani.png" alt="Book Cover">
+            <h3>పట్టణంలో బతుకుదామని</h3>
+        </div>
+        <div class="book" data-title="పంజరం" data-price="150">
+            <img src="images/panjaram.png" alt="Book Cover">
+            <h3>పంజరం</h3>
+        </div>
+        <div class="book" data-title="ఎమోషనల్ ప్రెగ్నెన్సీ" data-price="150">
+            <img src="images/book6.jpg" alt="Book Cover">
+            <h3>Book Title 6</h3>
+        </div>
+        <div class="book data-title="ఎమోషనల్ ప్రెగ్నెన్సీ" data-price="150"">
+            <img src="images/book7.jpg" alt="Book Cover">
+            <h3>Book Title 7</h3>
+        </div>
+        <div class="book data-title="ఎమోషనల్ ప్రెగ్నెన్సీ" data-price="150"">
+            <img src="images/book8.jpg" alt="Book Cover">
+            <h3>Book Title 8</h3>
+        </div>
+    </div>
+    <div class="part3">
+        <h2>Follow Us</h2>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@elamipublications" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com/elamipublications" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com/elamipublications" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:elamibooks@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+    <div class="cart-details" id="cart-details">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="total-price">0</span></p>
+        <button id="checkout-button">Checkout</button>
+    </div>
+    <script>
+        const cartItems = [];
+        const cartItemsList = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartDetails = document.getElementById('cart-details');
+        const cartCount = document.getElementById('cart-count');
+
+        document.querySelectorAll('.book h3').forEach(book => {
+            book.addEventListener('click', function() {
+                const bookElement = this.parentElement;
+                const title = bookElement.getAttribute('data-title');
+                const price = parseFloat(bookElement.getAttribute('data-price'));
+
+                cartItems.push({ title, price });
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            cartItemsList.innerHTML = '';
+            let totalPrice = 0;
+            cartItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.title} - $${item.price}`;
+                cartItemsList.appendChild(li);
+                totalPrice += item.price;
+            });
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+            cartCount.textContent = cartItems.length; // Update cart count
+        }
+
+        cartIcon.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent the click from propagating to the document
+            cartDetails.style.display = cartDetails.style.display === 'none' ? 'block' : 'none';
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!cartDetails.contains(event.target) && event.target !== cartIcon) {
+                cartDetails.style.display = 'none';
+            }
+        });
+
+        document.getElementById('checkout-button').addEventListener('click', function() {
+            alert('Proceeding to payment...');
+            // Here you can integrate a payment gateway like PayPal
+        });
+    </script>
+</body>
+</html>
